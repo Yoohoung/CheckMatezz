@@ -1,0 +1,954 @@
+:root {
+    --blue-900: #0f4c5c;
+    --blue-700: #147d92;
+    --blue-100: #e5f5f7;
+
+    --green-600: #239b88;
+    --green-100: #e4f4f0;
+
+    --ink: #20343a;
+    --muted: #6f8186;
+    --line: #dce9eb;
+    --page: #f4f9fa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding-top: 80px;
+    background: var(--page);
+    color: var(--ink);
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
+
+/*----- TOP NAVBAR -----*/
+
+.custom-navbar {
+    background: white;
+    box-shadow: 0 2px 15px rgba(15, 76, 92, .10);
+    width: 100%;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    min-height: 80px;
+}
+
+.navbar-logo {
+    margin-left: 150px;
+}
+
+.navbar-logo img {
+    transition: transform .2s ease;
+}
+
+.navbar-logo img:hover {
+    transform: scale(1.02);
+}
+
+.admin-account {
+    margin-right: 168px;
+    width: 158px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--blue-700);
+    background: var(--blue-100);
+}
+
+
+/*----- SIDE NAVBAR -----*/
+
+.navbar-column {
+    border-right: 1px solid var(--line);
+    width: 250px;
+    min-height: calc(100vh - 80px);
+    position: fixed;
+    top: 80px;
+    left: 0;
+    background: white;
+}
+
+.navbar-text {
+    border-bottom: 1px solid var(--line);
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-image {
+    object-fit: contain;
+}
+
+.navbar-description p {
+    margin: 0;
+    padding: 0;
+    margin-left: 5px;
+}
+
+.admin-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--blue-900);
+}
+
+.admin-description {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px !important;
+}
+
+
+/*----- SIDE MENU -----*/
+
+.navbar-list {
+    padding: 25px 15px;
+}
+
+.menu-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: #91a1a6;
+    letter-spacing: 1.2px;
+    margin: 0 0 12px 12px;
+}
+
+.navbar-list ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.navbar-list li {
+    height: 45px;
+    width: 100%;
+    margin-top: 5px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 7px;
+    color: #5f7479;
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.navbar-list li i {
+    font-size: 19px;
+}
+
+.navbar-list li p {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 550;
+}
+
+
+/*----- HOVER -----*/
+
+.navbar-list li:hover {
+    background: var(--blue-100);
+    color: var(--blue-700);
+}
+
+
+/*----- ACTIVE -----*/
+
+.navbar-list li.active {
+    background: var(--green-100);
+    color: #147d71;
+    font-weight: 700;
+}
+
+.navbar-list a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.navbar-list a li {
+    width: 100%;
+}
+
+
+/*----- MAIN CONTENT -----*/
+
+.main-content {
+    margin-left: 250px;
+    padding: 35px 40px;
+    min-height: calc(100vh - 80px);
+}
+
+
+/*----- PAGE HEADING -----*/
+
+.page-heading h1 {
+    font-size: 26px;
+    font-weight: 750;
+    letter-spacing: -.5px;
+    color: var(--blue-900);
+    margin-bottom: 8px;
+}
+
+.page-heading p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+}
+
+
+/*----- CONTENT PANEL -----*/
+
+.content-panel {
+    margin-top: 28px;
+    padding: 25px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+}
+
+.content-panel h2 {
+    margin: 0 0 7px;
+    color: var(--blue-900);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.content-panel p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/*----- RESPONSIVE -----*/
+
+@media (max-width: 768px) {
+
+    .navbar-logo {
+        margin-left: 20px;
+    }
+
+    .admin-account {
+        margin-right: 20px;
+    }
+
+    .navbar-column {
+        width: 210px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+        padding: 25px 20px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .navbar-column {
+        width: 65px;
+    }
+
+    .navbar-text {
+        justify-content: center;
+    }
+
+    .navbar-description,
+    .menu-title,
+    .navbar-list li p {
+        display: none;
+    }
+
+    .navbar-list {
+        padding: 20px 8px;
+    }
+
+    .navbar-list li {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .main-content {
+        margin-left: 65px;
+        padding: 20px 15px;
+    }
+}
+
+
+/*----- CREATE EVENT PAGE -----*/
+
+.create-event-panel {
+    margin-top: 28px;
+    padding: 32px;
+}
+
+.create-event-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
+    row-gap: 22px;
+}
+
+.event-field {
+    min-width: 0;
+}
+
+.event-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.event-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.event-field input,
+.event-field select,
+.event-field textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: #ffffff;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 14px;
+    padding: 12px 13px;
+    outline: none;
+    transition:
+        border-color .15s ease,
+        box-shadow .15s ease,
+        background-color .15s ease;
+}
+
+.event-field input,
+.event-field select {
+    height: 46px;
+}
+
+.event-field textarea {
+    min-height: 105px;
+    resize: vertical;
+}
+
+
+/*----- FORM FOCUS -----*/
+
+.event-field input:focus,
+.event-field select:focus,
+.event-field textarea:focus {
+    border-color: var(--blue-700);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(20, 125, 146, .11);
+}
+
+
+/*----- CREATE EVENT BUTTONS -----*/
+
+.create-event-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+}
+
+.create-event-actions .btn {
+    min-width: 105px;
+}
+
+
+/*----- CREATE EVENT RESPONSIVE -----*/
+
+@media (max-width: 700px) {
+
+    .create-event-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .event-field.full-width {
+        grid-column: auto;
+    }
+
+    .create-event-panel {
+        padding: 22px;
+    }
+}
+
+/*----- TABLET -----*/
+
+@media (max-width: 991px) {
+
+    .navbar-logo {
+        margin-left: 40px;
+    }
+
+    .admin-account {
+        margin-right: 40px;
+    }
+
+    .navbar-column {
+        width: 210px;
+    }
+
+    .main-content {
+        margin-left: 210px;
+        padding: 30px 25px;
+    }
+
+    .create-event-grid {
+        column-gap: 25px;
+    }
+}
+
+
+/*----- MOBILE -----*/
+
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 70px;
+    }
+
+    .custom-navbar {
+        min-height: 70px;
+    }
+
+    .navbar-logo {
+        margin-left: 15px;
+    }
+
+    .navbar-logo img {
+        width: 120px !important;
+    }
+
+    .admin-account {
+        margin-right: 15px;
+        width: auto;
+        min-width: 120px;
+    }
+
+
+    /*----- SIDE NAVBAR -----*/
+
+    .navbar-column {
+        width: 65px;
+        min-height: calc(100vh - 70px);
+        top: 70px;
+    }
+
+    .navbar-text {
+        height: 80px;
+    }
+
+    .navbar-description,
+    .menu-title,
+    .navbar-list li p {
+        display: none;
+    }
+
+    .navbar-list {
+        padding: 20px 8px;
+    }
+
+    .navbar-list li {
+        justify-content: center;
+        padding: 0;
+        gap: 0;
+    }
+
+
+    /*----- MAIN CONTENT -----*/
+
+    .main-content {
+        margin-left: 65px;
+        padding: 25px 18px;
+    }
+
+    .page-heading h1 {
+        font-size: 23px;
+    }
+
+    .page-heading p {
+        font-size: 12px;
+    }
+
+    .content-panel {
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+
+    /*----- CREATE EVENT -----*/
+
+    .create-event-grid {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 18px;
+    }
+
+    .event-field.full-width {
+        grid-column: auto;
+    }
+
+    .create-event-panel {
+        padding: 20px;
+    }
+}
+
+
+/*----- SMALL PHONE -----*/
+
+@media (max-width: 480px) {
+
+    body {
+        padding-top: 65px;
+    }
+
+    .custom-navbar {
+        min-height: 65px;
+    }
+
+    .navbar-logo {
+        margin-left: 10px;
+    }
+
+    .navbar-logo img {
+        width: 105px !important;
+    }
+
+    .admin-account {
+        margin-right: 10px;
+        min-width: 90px;
+        padding: 6px;
+        font-size: 9px;
+    }
+
+    .navbar-column {
+        width: 55px;
+        top: 65px;
+    }
+
+    .navbar-text {
+        height: 70px;
+    }
+
+    .navbar-list {
+        padding: 15px 6px;
+    }
+
+    .navbar-list li {
+        height: 42px;
+    }
+
+    .navbar-list li i {
+        font-size: 17px;
+    }
+
+    .main-content {
+        margin-left: 55px;
+        padding: 20px 12px;
+    }
+
+    .page-heading h1 {
+        font-size: 20px;
+    }
+
+    .page-heading p {
+        font-size: 11px;
+    }
+
+    .content-panel {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .create-event-panel {
+        padding: 15px;
+    }
+
+    .event-field input,
+    .event-field select,
+    .event-field textarea {
+        font-size: 13px;
+    }
+
+    .create-event-actions {
+        flex-direction: column;
+    }
+
+    .create-event-actions .btn {
+        width: 100%;
+    }
+}
+
+/*----- TABLET -----*/
+
+@media (max-width: 991px) {
+
+    .navbar-logo {
+        margin-left: 35px;
+    }
+
+    .admin-account {
+        margin-right: 35px;
+    }
+
+    .navbar-column {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+        padding: 30px 25px;
+    }
+
+    .page-heading h1 {
+        font-size: 24px;
+    }
+
+    .content-panel {
+        padding: 22px;
+    }
+
+    .create-event-grid {
+        column-gap: 25px;
+    }
+}
+
+
+/*----- MOBILE -----*/
+
+@media (max-width: 768px) {
+
+    body {
+        padding-top: 70px;
+    }
+
+
+    /*----- TOP NAVBAR -----*/
+
+    .custom-navbar {
+        min-height: 70px;
+    }
+
+    .navbar-logo {
+        margin-left: 15px;
+    }
+
+    .navbar-logo img {
+        width: 120px !important;
+    }
+
+    .admin-account {
+        margin-right: 15px;
+        width: auto;
+        min-width: 110px;
+        font-size: 10px;
+    }
+
+
+    /*----- SIDE NAVBAR -----*/
+
+    .navbar-column {
+        width: 65px;
+        min-height: calc(100vh - 70px);
+        top: 70px;
+    }
+
+    .navbar-text {
+        height: 80px;
+        gap: 0;
+    }
+
+    .navbar-description,
+    .menu-title,
+    .navbar-list li p {
+        display: none;
+    }
+
+    .navbar-image {
+        max-width: 38px;
+        max-height: 38px;
+    }
+
+    .navbar-list {
+        padding: 20px 8px;
+    }
+
+    .navbar-list li {
+        width: 100%;
+        height: 44px;
+        margin-top: 5px;
+        padding: 0;
+        justify-content: center;
+        gap: 0;
+    }
+
+    .navbar-list li i {
+        font-size: 19px;
+    }
+
+
+    /*----- MAIN CONTENT -----*/
+
+    .main-content {
+        margin-left: 65px;
+        padding: 25px 18px;
+        min-height: calc(100vh - 70px);
+    }
+
+    .page-heading h1 {
+        font-size: 23px;
+    }
+
+    .page-heading p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+
+    /*----- CONTENT PANEL -----*/
+
+    .content-panel {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .content-panel h2 {
+        font-size: 16px;
+    }
+
+    .content-panel p {
+        font-size: 12px;
+    }
+
+
+    /*----- CREATE EVENT -----*/
+
+    .create-event-grid {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 18px;
+    }
+
+    .event-field.full-width {
+        grid-column: auto;
+    }
+
+    .create-event-panel {
+        padding: 20px;
+    }
+
+    .create-event-actions {
+        flex-wrap: wrap;
+    }
+}
+
+
+/*----- SMALL PHONE -----*/
+
+@media (max-width: 480px) {
+
+    body {
+        padding-top: 65px;
+    }
+
+
+    /*----- TOP NAVBAR -----*/
+
+    .custom-navbar {
+        min-height: 65px;
+    }
+
+    .navbar-logo {
+        margin-left: 10px;
+    }
+
+    .navbar-logo img {
+        width: 105px !important;
+    }
+
+    .admin-account {
+        margin-right: 10px;
+        min-width: 90px;
+        width: auto;
+        padding: 6px;
+        font-size: 9px;
+    }
+
+
+    /*----- SIDE NAVBAR -----*/
+
+    .navbar-column {
+        width: 55px;
+        min-height: calc(100vh - 65px);
+        top: 65px;
+    }
+
+    .navbar-text {
+        height: 70px;
+    }
+
+    .navbar-image {
+        max-width: 32px;
+        max-height: 32px;
+    }
+
+    .navbar-list {
+        padding: 15px 6px;
+    }
+
+    .navbar-list li {
+        height: 42px;
+    }
+
+    .navbar-list li i {
+        font-size: 17px;
+    }
+
+
+    /*----- MAIN CONTENT -----*/
+
+    .main-content {
+        margin-left: 55px;
+        padding: 20px 12px;
+    }
+
+    .page-heading h1 {
+        font-size: 20px;
+        margin-bottom: 6px;
+    }
+
+    .page-heading p {
+        font-size: 11px;
+    }
+
+
+    /*----- CONTENT PANEL -----*/
+
+    .content-panel {
+        margin-top: 16px;
+        padding: 15px;
+        border-radius: 9px;
+    }
+
+    .content-panel h2 {
+        font-size: 15px;
+    }
+
+    .content-panel p {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+
+    /*----- CREATE EVENT -----*/
+
+    .create-event-panel {
+        padding: 15px;
+    }
+
+    .event-field label {
+        font-size: 12px;
+    }
+
+    .event-field input,
+    .event-field select,
+    .event-field textarea {
+        font-size: 13px;
+    }
+
+    .create-event-actions {
+        flex-direction: column;
+    }
+
+    .create-event-actions .btn {
+        width: 100%;
+    }
+}
+
+/*----- MANAGE EVENTS TABLE -----*/
+
+.manage-events-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.manage-events-table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+}
+
+
+/*----- TABLET -----*/
+
+@media (max-width: 991px) {
+
+    .manage-events-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .manage-events-table {
+        min-width: 800px;
+    }
+}
+
+
+/*----- MOBILE -----*/
+
+@media (max-width: 768px) {
+
+    .manage-events-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        border-radius: 8px;
+    }
+
+    .manage-events-table {
+        min-width: 760px;
+    }
+
+    .manage-events-table th,
+    .manage-events-table td {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+}
+
+
+/*----- SMALL PHONE -----*/
+
+@media (max-width: 480px) {
+
+    .manage-events-table {
+        min-width: 720px;
+    }
+
+    .manage-events-table th,
+    .manage-events-table td {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+}
